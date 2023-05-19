@@ -1,0 +1,297 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+:root {
+    font-family: 'Roboto', sans-serif;
+    --blue: #0ea5e9;
+    --light-blue: #38bdf8;
+    --amber: #fbbf24;
+    --dark-amber: #f59e0b;
+    --bg-gray: #d1d5db;
+    --text-gray: #4b5563;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+.sidebar {
+    grid-row: 1/-1;
+    background-color: var(--blue);
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 32px;
+    color: white;
+    font-weight: bold;
+}
+
+.logoContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 16px;
+    font-size: clamp(1rem, 2vw, 2rem);
+    padding: 24px;
+    padding-right: max(24px, 4vw);
+}
+
+.navContainer {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 32px;
+    font-size: clamp(0.75rem, 1.5vw, 1.5rem);
+}
+
+.nav1 > div,
+.nav2 > div {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    padding: 8px 24px;
+}
+
+.nav1 > div:hover,
+.nav2 > div:hover {
+    background-color: var(--light-blue);
+}
+
+.header {
+    display: grid;
+    grid-template-rows: auto auto;
+    padding: 16px 48px;
+    gap: 16px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.header > .top {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    align-items: center;
+    gap: 16px;;
+}
+
+.top > .search {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 16px;
+}
+
+.search .searchBar {
+    width: 80%;
+}
+
+.userImage {
+    border-radius: 50%;
+    aspect-ratio: 1;
+}
+
+.current.userImage {
+    background-color: var(--amber);
+}
+
+.top .current.userImage {
+    height: 40px;
+}
+
+.header > .bottom {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto;
+    align-items: center;
+    gap: 16px;
+}
+
+.bottom .current.userImage {
+    height: 60px;
+}
+
+.bottom .greetCurrentUser {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 8px;
+}
+
+.bottom .greet {
+    font-size: 0.75rem;
+}
+
+.bottom .current.userWithAt {
+    font-size: 1.5rem;
+}
+
+.bottom > a {
+    background-color: var(--blue);
+    color: white;
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    display: grid;
+    place-content: center;
+}
+
+.content {
+    background-color: var(--bg-gray);
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    font-size: 0.75rem;
+    padding: 0 16px 2vh;
+    gap: 16px;
+}
+
+.content p {
+    color: var(--text-gray);
+}
+
+.contentTitle {
+    padding: 32px 0 8px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.mainContent {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.mainContent > .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max(200px, 30%), 1fr));
+    grid-auto-rows: 1fr;
+    gap: 16px;
+}
+
+.mainContent .card {
+    background-color: white;
+    padding: 32px 16px;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    border-radius: 8px;
+    border-left: 8px solid var(--dark-amber);
+}
+
+.mainContent .card h1 {
+    font-size: 1rem;
+}
+
+.mainContent .card p {
+    max-height: 75px;
+    overflow: hidden;
+    position: relative;
+}
+
+.mainContent .card p:after {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(0deg, white 5%, rgba(255, 255, 255, 0.85) 15%, transparent 40%);
+}
+
+.mainContent .cardOptions {
+    display: grid;
+    grid-template-columns: repeat(3, min-content);
+    justify-content: end;
+    align-content: end;
+    padding-top: 1rem;
+}
+
+.sideContent {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.sideContent .card {
+    background-color: white;
+    border-radius: 8px;
+}
+
+.sideContent .announcementsContainer {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.sideContent .announcementsContainer .card {
+    padding: 16px;
+    display: grid;
+    grid-auto-rows: auto;
+}
+
+.announcement {
+    padding: 8px;
+}
+
+.announcement + .announcement {
+    border-top: 1px solid var(--bg-gray);
+}
+
+.announcementsContainer .card h1 {
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.announcementsContainer .card p {
+    font-size: 90%;
+}
+
+.trendingContainer {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.trendingContainer .card {
+    display: grid;
+    grid-auto-rows: 1fr;
+    padding: 16px;
+}
+
+.trendingContainer .userProject {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 8px;
+    gap: 16px;
+}
+
+.userProject + .userProject {
+    border-top: 1px solid var(--bg-gray);
+}
+
+.userProject .userImage {
+    height: 40px;
+}
+
+#tegan .userImage {
+    background-color: #e0f2fe;
+}
+
+#morgan .userImage {
+    background-color: var(--amber);
+}
+
+#kendall .userImage {
+    background-color: #9ca3af;
+}
+
+#alex .userImage {
+    background-color: #fda4af;
+}
+
+.userProject .userImage + div {
+    display: grid;
+    grid-template-rows: auto auto;
+    align-content: center;
+}
+
+.userProject .projectName {
+    color: var(--text-gray);
+}
