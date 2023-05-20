@@ -12,7 +12,7 @@
     --light-blue: #38bdf8;
     --amber: #fbbf24;
     --dark-amber: #f59e0b;
-    --bg-gray: #d1d5db;
+    --bg-gray: #e5e7eb;
     --text-gray: #4b5563;
 }
 
@@ -31,15 +31,26 @@ body {
     gap: 32px;
     color: white;
     font-weight: bold;
+    position: relative;
+    z-index: 2;
 }
 
 .logoContainer {
     display: grid;
     grid-template-columns: auto auto;
+    align-items: center;
     gap: 16px;
     font-size: clamp(1rem, 2vw, 2rem);
     padding: 24px;
     padding-right: max(24px, 4vw);
+}
+
+.icon {
+    aspect-ratio: 1;
+}
+
+.logoContainer .icon {
+    height: calc(clamp(1rem, 2vw, 2rem) * 2);
 }
 
 .navContainer {
@@ -49,18 +60,26 @@ body {
     font-size: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
+.navContainer .icon {
+    height: calc(clamp(0.75rem, 1.5vw, 1.5rem) * 1.5);
+}
+
 .nav1 > div,
 .nav2 > div {
     display: grid;
     grid-template-columns: auto 1fr;
+    align-items: center;
     gap: 24px;
     padding: 8px 24px;
+    transition: 0.5s;
 }
 
 .nav1 > div:hover,
 .nav2 > div:hover {
     background-color: var(--light-blue);
+    transition: 0.5s;
 }
+
 
 .header {
     display: grid;
@@ -69,6 +88,9 @@ body {
     gap: 16px;
     font-weight: bold;
     font-size: 1rem;
+    box-shadow: 0 0 20px -10px;
+    position: relative;
+    z-index: 1;
 }
 
 .header > .top {
@@ -85,8 +107,31 @@ body {
     gap: 16px;
 }
 
+.search .icon {
+    height: 1.5rem;
+}
+
 .search .searchBar {
     width: 80%;
+    height: 2rem;
+    border-radius: 1rem;
+    border: 1px solid transparent;
+    background-color: var(--bg-gray);
+    padding: 0.5rem;
+    box-shadow: 5px 5px 20px -15px transparent;
+    transition: 0.5s;
+}
+
+.search .searchBar:focus {
+    outline: none;
+    border: 1px solid var(--blue);
+    background-color: #f9fafb;
+    box-shadow: 5px 5px 20px -12px;
+    transition: 0.5s;
+}
+
+.top .notifications.icon {
+    height: 1.5rem;
 }
 
 .userImage {
@@ -96,6 +141,7 @@ body {
 
 .current.userImage {
     background-color: var(--amber);
+    background-image: url(Icons/cat.svg);
 }
 
 .top .current.userImage {
@@ -135,6 +181,12 @@ body {
     border-radius: 20px;
     display: grid;
     place-content: center;
+    transition: 0.5s;
+}
+
+.bottom > a:hover {
+    background-color: var(--light-blue);
+    transition: 0.5s;
 }
 
 .content {
@@ -142,7 +194,7 @@ body {
     display: grid;
     grid-template-columns: 3fr 1fr;
     font-size: 0.75rem;
-    padding: 0 16px 2vh;
+    padding: 0 16px 4vh;
     gap: 16px;
 }
 
@@ -170,11 +222,19 @@ body {
 
 .mainContent .card {
     background-color: white;
-    padding: 32px 16px;
+    padding: 32px 16px 16px;
     display: grid;
     grid-template-rows: auto 1fr auto;
     border-radius: 8px;
     border-left: 8px solid var(--dark-amber);
+    box-shadow: 5px 5px 20px -12px transparent;
+    transition: 0.5s;
+}
+
+.mainContent .card:hover {
+    box-shadow: 5px 5px 20px -12px;
+    transform: translate(-4px, -2px);
+    transition: 0.5s;
 }
 
 .mainContent .card h1 {
@@ -203,6 +263,23 @@ body {
     justify-content: end;
     align-content: end;
     padding-top: 1rem;
+    gap: 16px;
+}
+
+.mainContent .cardOptions > .icon {
+    height: 1.5rem;
+}
+
+.mainContent .cardOptions > .icon:first-child {
+    background-image: url(Icons/star-plus-outline.svg);
+}
+
+.mainContent .cardOptions > .icon:nth-child(2) {
+    background-image: url(Icons/eye-plus-outline.svg);
+}
+
+.mainContent .cardOptions > .icon:nth-child(3) {
+    background-image: url(Icons/source-fork.svg);
 }
 
 .sideContent {
@@ -228,6 +305,12 @@ body {
 
 .announcement {
     padding: 8px;
+    transition: 0.5s;
+}
+
+.announcement:hover {
+    transform: translate(-4px, 0px);
+    transition: 0.5s;
 }
 
 .announcement + .announcement {
@@ -262,6 +345,11 @@ body {
     gap: 16px;
 }
 
+.trendingContainer .userProject:hover {
+    transform: translate(-4px, 0px);
+    transition: 0.5s;
+}
+
 .userProject + .userProject {
     border-top: 1px solid var(--bg-gray);
 }
@@ -272,18 +360,21 @@ body {
 
 #tegan .userImage {
     background-color: #e0f2fe;
+    background-image: url(Icons/unicorn.svg);
 }
 
 #morgan .userImage {
     background-color: var(--amber);
+    background-image: url(Icons/cat.svg);
 }
 
 #kendall .userImage {
     background-color: #9ca3af;
+    background-image: url(Icons/rabbit-variant.svg);
 }
 
 #alex .userImage {
-    background-color: #fda4af;
+    background-color: #fda4af;background-image: url(Icons/penguin.svg)
 }
 
 .userProject .userImage + div {
