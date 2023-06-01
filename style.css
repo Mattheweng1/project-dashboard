@@ -343,6 +343,7 @@ body {
     align-items: center;
     padding: 8px;
     gap: 16px;
+    transition: 0.5s;
 }
 
 .trendingContainer .userProject:hover {
